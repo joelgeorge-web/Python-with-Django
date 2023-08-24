@@ -47,3 +47,8 @@ def proceed(request, record_id):
     record_id = student.objects.get(pk=record_id)
     return render(request, 'proceed.html', {'record_id': record_id})
 
+
+def complete(request):
+    records = student.objects.filter(status = True)
+    print(records)
+    return render(request, 'complete.html', {'records': records})

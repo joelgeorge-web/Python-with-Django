@@ -12,5 +12,6 @@ urlpatterns = [
     path('consult', views.consult, name='consult'),
     path('proceed', views.consult, name='proceed'),
     path('proceed/<int:record_id>/', views.proceed, name='proceed'),
+    path('complete', views.complete, name='complete'),
 
 ]
