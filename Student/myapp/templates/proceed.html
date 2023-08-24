@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patient Details</title>
+  <style>
+    body {
+      background: #e35869;
+      font-family: 'Rubik', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .details-container {
+      background: white;
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .observations-form {
+      margin-top: 20px;
+    }
+
+    .observations-form textarea {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .observations-form button {
+      display: block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Patient Details</h1>
+  <div class="details-container">
+    <h2>{{ record_id.name }}</h2>
+    <p>Email: {{ record_id.email }}</p>
+    <p>Phone Number: {{ record_id.pno }}</p>
+    <p>Age: {{ record_id.age }}</p>
+    <p>Weight: {{ record_id.weight }}</p>
+    <p>Height: {{ record_id.height }}</p>
+    <p>Blood Group: {{ record_id.bgroup }}</p>
+    <p>Gender: {{ record_id.gender }}</p>
+
+    <form action="/observations" method="post">
+      {% csrf_token %}
+      <label for="observations">Observations:</label>
+      <textarea id="observations" name="observations"></textarea>
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</body>
+</html>
