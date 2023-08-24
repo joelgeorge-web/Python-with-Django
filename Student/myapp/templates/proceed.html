@@ -5,7 +5,7 @@
   <title>Patient Details</title>
   <style>
     body {
-      background: #e35869;
+      background: #656562;
       font-family: 'Rubik', sans-serif;
       margin: 0;
       padding: 0;
@@ -65,6 +65,7 @@
       {% csrf_token %}
       <label for="observations">Observations:</label>
       <textarea id="observations" name="observations"></textarea>
+      <input type="hidden" value="{{ record_id.id }}" name="userid" >
       <button type="submit">Save</button>
     </form>
   </div>

@@ -20,7 +20,11 @@ def savevalue(request):
 def observations(request):
     if request.method == 'POST':
         observations= request.POST.get('observations')
+        id = request.POST.get('userid')
 
+        std = student.objects.get(id=id)
+        std.status = True
+        std.save()
         post=Patient_ob(observations=observations)
         post.save()
         return render(request, 'register.html', {})
@@ -36,7 +40,7 @@ def regbutton(request):
     return render(request, 'regbutton.html', {})
 
 def consult(request):
-    records = student.objects.all()
+    records = student.objects.filter(status = False)
     return render(request, 'consult.html', {'records': records})
 
 def proceed(request, record_id):

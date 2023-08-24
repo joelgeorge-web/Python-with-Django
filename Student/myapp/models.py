@@ -8,7 +8,8 @@ class student(models.Model):
     weight = models.IntegerField()
     height = models.IntegerField()
     bgroup = models.CharField(max_length=100)
-    gender = models.CharField(max_length=100)  
+    gender = models.CharField(max_length=100)
+    status = models.BooleanField(default=False) 
 
 
 class Patient_ob(models.Model):
